@@ -1,0 +1,5 @@
+## Banks often record transactions on an account in order of the times of the transactions, but many people like to receive their bank statements with checks listed in order by check number. People usually write checks in order by check number, and merchants usually cash them with reasonable dispatch. The problem of converting time-of-transaction ordering to check-number ordering is therefore the problem of sorting almost sorted input.
+
+Solution: The more sorted the array is, the less work insertion sort will do. Namely, INSERTION-SORT is O(n + d), where d is the number of inversions in the array. In the example above the number of inversions tends to be small so insertion sort will be close to linear.
+
+On the other hand, if PARTITION does picks a pivot that does not participate in an inversion, it will produce an empty partition. Since there is a small number of inversions, QUICKSORT is very likely to produce empty partitions.
