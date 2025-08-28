@@ -1,0 +1,5 @@
+## Suppose that the splits at every level of quicksort are in the proportion 1-alpha to alpha, where 0 < alpha ≤ 0.5 is a constant. Show that the minimum depth of a leaf in the recursion tree is approximately -lgn / lg(alpha) and the maximum depth is approximately -lgn/lg(1-alpha)
+
+Solution: The minimum depth follows a path that always takes the smaller part of the partition - i.e. that multiplies the number of elements by alpha. One iteration reduces the number of element from n to alpha*n and i iterations reduces the number of elements to alpha ^ i n. At a leaf, there is just one remaining element, and so at a minimum-depth leaf of depth m, we have alpha ^ m n = 1. Thus, alpha^m = 1/n. Taking logs, we get m*lgalpha = -lgn or m = -lgn/lgalpha.
+
+Similarly, maximum depth corresponds to always taking the larger part of the partition, i.e., keeping a fraction (1-alpha) of the elements each time. The maximum depth M is reached when there is one element left, that is when (1-alpha)^M n = 1. Thus, M = -lgn / lg(1-alpha)
