@@ -25,11 +25,30 @@ class LinkedList {
     let current = this.head;
     while (current.next) {
       if (current.key === value) {
-        return true;
+        return current;
       }
       current = current.next;
     }
     return false;
+  }
+  insert_list(node) {
+    node.next = this.head;
+    if (this.head != null) {
+      this.head.prev = node;
+    }
+    this.head = node;
+    node.prev = null;
+  }
+  delete_list(value) {
+    let node = this.search_list(value);
+    if (node.prev != null) {
+      node.prev.next = node.next;
+    } else {
+      this.head = node.next;
+    }
+    if (node.next != null) {
+      node.next.prev = node.prev;
+    }
   }
 }
 
@@ -49,3 +68,5 @@ linkedlist.append(node2);
 linkedlist.append(node3);
 console.log(linkedlist.getHead().next);
 console.log(linkedlist.search_list(2));
+linkedlist.delete_list(2);
+console.log(linkedlist.getHead());
